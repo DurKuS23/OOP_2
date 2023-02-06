@@ -16,18 +16,39 @@ namespace Pr03
         {
             InitializeComponent();
         }
-        Tahac tahac;
         NakladniAuto auto;
+      
+        
         private void button1_Click(object sender, EventArgs e)
-        {
-            auto = new NakladniAuto("6J2 4685", 4);
-            tahac = new Tahac("", 4, 6);
-            MessageBox.Show("Založení " + tahac.ToString());
+        { 
+            MessageBox.Show("Založení : " + auto.ToString());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tahac.NalozNaklad(Convert.ToInt32(textBox1.Text));
+            auto.NalozNaklad(Convert.ToInt32(textBox1.Text));
+            MessageBox.Show(auto.ToString());
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+             auto = new NakladniAuto("6J5 4876", 8);
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+             auto = new Tahac("6J2 2223", 4, 6);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            auto = new NakladniAuto("6J5 4876", 8);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            auto.VylozNaklad(Convert.ToInt32(textBox2.Text));
+            MessageBox.Show(auto.ToString());
         }
     }
 }
