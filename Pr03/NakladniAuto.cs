@@ -11,7 +11,7 @@ namespace Pr03
     {
         private string spz;
 
-        private int nosnost; //v tunach
+        protected int nosnost; //v tunach
 
         public int HmotnostNakladu { get; private set; } //v tunach
 

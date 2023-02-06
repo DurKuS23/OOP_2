@@ -16,5 +16,18 @@ namespace Pr03
         {
             InitializeComponent();
         }
+        Tahac tahac;
+        NakladniAuto auto;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            auto = new NakladniAuto("6J2 4685", 4);
+            tahac = new Tahac("", 4, 6);
+            MessageBox.Show("Založení " + tahac.ToString());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tahac.NalozNaklad(Convert.ToInt32(textBox1.Text));
+        }
     }
 }
