@@ -8,10 +8,10 @@ namespace Pr02
 {
     internal class Retez
     {
-        private string veta;
+        protected string veta;
         private int cislo;
 
-        public string Veta
+        public virtual string Veta
         {
             get
             {
@@ -20,7 +20,16 @@ namespace Pr02
             set
             {
                 veta = value;
-                veta[0].ToString().ToUpper();
+                string c = (value.Substring(0, 1).ToUpper()) + value.Substring(1);
+                if (c[c.Length - 1] == '.')
+                {
+                    veta = c;
+                }
+                else
+                {
+                    c += '.';
+                    veta = c;
+                }
             }
         }
 
@@ -28,6 +37,23 @@ namespace Pr02
         {
             Veta = veta;
             this.cislo = cislo;
+        }
+
+        public void PocetSlov(out int pocetslov)
+        {
+            string[] veta_array = veta.Split(' ');
+            pocetslov = veta_array.Count();
+        }
+
+        public virtual void Zkrat(int cislo)
+        {
+            string[] newveta = veta.Split(' ');
+
+            veta = string.Empty;
+            for (int k = 0; k < cislo; k++)
+            {
+                veta += newveta[k] + " ";
+            }
         }
 
         public override string ToString()
